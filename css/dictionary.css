@@ -1,0 +1,127 @@
+/* Twerp's dictionary */
+
+/* The page corner poking up in the bottom-right */
+.dict-corner {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 22;
+  width: 70px;
+  height: 70px;
+  padding: 0;
+  border: 0;
+  background:
+    linear-gradient(135deg, transparent 50%, #e9e2cf 50%, #fffdf6 62%, #f1ead8 100%);
+  filter: drop-shadow(-3px -3px 4px rgba(0, 0, 0, .35));
+  cursor: pointer;
+  transform-origin: 100% 100%;
+  transition: transform .25s;
+}
+.dict-corner::after {
+  /* a few printed lines peeking out */
+  content: "";
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  width: 26px;
+  height: 22px;
+  background: repeating-linear-gradient(#bbb 0 1px, transparent 1px 5px);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  opacity: .7;
+}
+.dict-corner:hover { transform: scale(1.15); }
+.dict-corner.poke { animation: corner-poke .7s ease-out; }
+.dict-corner.beckon { animation: corner-beckon 1.2s ease-in-out infinite; }
+.dict-corner.is-open { transform: scale(.85); }
+@keyframes corner-poke { 0% { transform: scale(0); } 70% { transform: scale(1.3); } 100% { transform: scale(1); } }
+@keyframes corner-beckon { 50% { transform: scale(1.35); } }
+
+/* Full-screen white dictionary */
+.dict-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 18; /* under the dialogue so the voices stay visible */
+  display: flex;
+  justify-content: center;
+  padding: 4vh 16px 0;
+  background: #fff;
+  animation: dict-in .3s ease-out;
+}
+@keyframes dict-in { from { opacity: 0; } }
+
+.dict-book { position: relative; display: flex; align-items: flex-start; max-width: 100%; }
+.dict-page {
+  width: min(560px, calc(100vw - 110px));
+  max-height: 46vh;
+  overflow-y: auto;
+  padding: 26px 34px 30px;
+  background: #fffdf6;
+  color: #1b1b1b;
+  border: 1px solid #d8d0bb;
+  box-shadow: 0 1px 0 #e8e1cc, 0 3px 0 #fffdf6, 0 4px 0 #ddd5c0, 0 6px 0 #fffdf6, 0 7px 0 #d2c9b2, 0 12px 30px rgba(0, 0, 0, .12);
+  font-family: "Libre Baskerville", Georgia, serif;
+  transform-origin: left center;
+}
+.dict-page.flip { animation: page-flip .55s ease-out; }
+@keyframes page-flip {
+  0% { transform: perspective(1200px) rotateY(-75deg); opacity: .2; }
+  100% { transform: perspective(1200px) rotateY(0); opacity: 1; }
+}
+.dict-guide {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 6px;
+  margin-bottom: 18px;
+  border-bottom: 2px solid #1b1b1b;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.dict-head { margin: 0; font-size: 32px; }
+.dict-meta { margin: 4px 0 16px; font-size: 15px; color: #555; }
+.dict-pron { margin-right: 10px; font-family: system-ui, sans-serif; }
+.dict-body p { margin: 0 0 12px; font-size: 16px; line-height: 1.6; }
+.dict-source { margin: 18px 0 0; font-size: 12px; color: #777; }
+
+/* Thumb-index tabs down the right edge */
+.dict-tabs { display: flex; flex-direction: column; gap: 6px; padding-top: 70px; margin-left: -1px; }
+.dict-tab {
+  min-width: 64px;
+  padding: 10px 12px 10px 10px;
+  border: 1px solid #1b1b1b;
+  border-left: 0;
+  border-radius: 0 16px 16px 0;
+  background: #1b1b1b;
+  color: #fffdf6;
+  font: 700 13px/1 "Libre Baskerville", Georgia, serif;
+  text-align: left;
+  cursor: pointer;
+}
+.dict-tab.active { background: #fffdf6; color: #1b1b1b; }
+.dict-tab.beckon { animation: tab-beckon 1s ease-in-out infinite; }
+@keyframes tab-beckon { 50% { transform: translateX(8px); background: #f5c518; color: #000; } }
+
+.dict-close {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #1b1b1b;
+  border-radius: 50%;
+  background: #fff;
+  color: #1b1b1b;
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  .dict-page { padding: 18px 18px 22px; max-height: 46vh; }
+  .dict-head { font-size: 26px; }
+  .dict-tab { min-width: 52px; padding: 8px; font-size: 12px; }
+}
+
+/* While the dictionary is open the conversation sits underneath the page, and the
+   left voice's white highlight gets an outline so it shows up on the white background. */
+.dict-open .dialogue { max-height: 38%; }
+.dict-open .line.left .bubble { box-shadow: inset 0 0 0 1.5px #000; }

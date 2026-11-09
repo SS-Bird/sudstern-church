@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 110" width="200" height="110">
+  <!-- A little hand-drawn plane. Replace with your own drawing (keep the filename, or change plane_image in script/scene2-sudstern.md). -->
+  <g fill="none" stroke="#1b1b1b" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- motion lines -->
+    <path d="M6 52 q10 -2 22 0" stroke-width="2.4" opacity=".7"/>
+    <path d="M2 66 q12 -1 26 1" stroke-width="2.4" opacity=".7"/>
+    <path d="M10 80 q8 -1 16 0" stroke-width="2.4" opacity=".55"/>
+    <!-- body -->
+    <path d="M38 62 C40 50 60 46 92 46 L150 45 C170 45 186 52 189 59 C186 67 168 72 148 72 L82 73 C58 73 40 70 38 62 Z" fill="#fffdf6"/>
+    <!-- tail -->
+    <path d="M44 58 L34 24 C33 20 38 19 41 22 L66 47" fill="#fffdf6"/>
+    <path d="M42 66 L24 70 C21 71 21 75 24 75 L56 73" fill="#fffdf6"/>
+    <!-- top wing (behind) -->
+    <path d="M104 47 L120 18 C122 14 127 15 127 19 L126 46" fill="#fffdf6"/>
+    <!-- bottom wing (front) -->
+    <path d="M98 66 L128 100 C131 104 137 102 136 98 L124 70" fill="#fffdf6"/>
+    <!-- windows -->
+    <circle cx="102" cy="57" r="3.2"/>
+    <circle cx="116" cy="57" r="3.2"/>
+    <circle cx="130" cy="57" r="3.2"/>
+    <circle cx="144" cy="57" r="3.2"/>
+    <path d="M160 52 q10 0 17 6" stroke-width="2.6"/>
+    <!-- stripe -->
+    <path d="M60 66 L176 64" stroke="#d93025" stroke-width="2.6"/>
+  </g>
+</svg>

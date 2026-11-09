@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Hasenheide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=Libre+Baskerville&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/scene3.css">
+  <link rel="stylesheet" href="css/dictionary.css">
+</head>
+<body class="scene3">
+  <div class="street" id="street"></div>
+
+  <!-- Preview mode (no API key): a fake street with buttons -->
+  <div class="preview" id="preview" hidden>
+    <div class="preview-view" id="preview-view">
+      <div class="road"></div>
+      <div class="preview-church" id="preview-church" aria-hidden="true">⛪</div>
+      <div class="preview-sign" id="preview-sign"></div>
+    </div>
+    <div class="preview-controls">
+      <button id="walk">↑ Walk forward</button>
+      <button id="turn">⟲ Turn around</button>
+    </div>
+    <p class="preview-note" id="preview-note"></p>
+  </div>
+
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <!-- Scene 4a: the headless statue behind the church -->
+  <div class="statue" id="statue" hidden>
+    <img alt="The Memorial to the Fallen Guard Pioneers behind Sudstern Church" hidden>
+    <video playsinline preload="auto" hidden></video>
+  </div>
+
+  <div class="dialogue" id="dialogue" aria-live="polite"></div>
+
+  <div class="bonnie" id="bonnie" aria-hidden="true"></div>
+  <pre class="dev" id="dev" hidden></pre>
+
+  <script src="js/content.js"></script>
+  <script src="js/stars.js"></script>
+  <script src="js/dialogue.js"></script>
+  <script src="js/dictionary.js"></script>
+  <script src="js/scene3.js"></script>
+</body>
+</html>

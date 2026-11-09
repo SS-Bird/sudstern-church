@@ -1,0 +1,251 @@
+/* Scene 3 — Street View walk */
+.scene3 { height: 100vh; height: 100dvh; overflow: hidden; background: #000; color: #fff; font-family: system-ui, sans-serif; }
+.street { position: absolute; inset: 0; }
+
+/* Step texts (1–5) */
+.caption {
+  position: fixed;
+  left: 50%;
+  top: 22%;
+  z-index: 10;
+  width: min(760px, calc(100% - 32px));
+  transform: translateX(-50%);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: clamp(19px, 2.6vw, 30px);
+  line-height: 1.45;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 0 2px #000, 0 2px 14px rgba(0, 0, 0, .9);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .6s;
+}
+.caption.show { opacity: 1; }
+.caption p { margin: 0 0 .7em; }
+
+/* Final dialogue: two "voices" */
+.dialogue {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 9%;
+  z-index: 20; /* above the statue layer and the dictionary */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  max-height: 78%;
+  overflow: hidden;
+  padding: 40px clamp(16px, 5vw, 64px) 0;
+  pointer-events: none;
+  font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  font-size: clamp(14px, 1.7vw, 20px);
+  line-height: 1.55;
+  /* older lines fade out as they scroll up */
+  -webkit-mask-image: linear-gradient(transparent, #000 90px);
+  mask-image: linear-gradient(transparent, #000 90px);
+}
+.dialogue-track { display: flex; flex-direction: column; gap: 14px; will-change: transform; }
+.dialogue-track > .line { flex: none; }
+.line.center { justify-content: center; }
+.dialogue button, .dialogue textarea { pointer-events: auto; }
+
+.choices { flex-wrap: wrap; gap: 10px; }
+.choice-btn, .action-btn {
+  padding: 8px 16px;
+  font: inherit;
+  font-weight: 600;
+  color: #000;
+  background: #f5c518;
+  border: 2px solid #000;
+  border-radius: 0;
+  box-shadow: 3px 3px 0 #000;
+  cursor: pointer;
+}
+.choice-btn:hover:not(:disabled), .action-btn:hover:not(:disabled) { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 #000; }
+.choice-btn:disabled, .action-btn:disabled { opacity: .35; cursor: default; box-shadow: none; }
+.choice-btn.picked, .action-btn.picked { opacity: 1; background: #fff; }
+.line.right .action-btn { background: #000; color: #fff; border-color: #fff; box-shadow: 3px 3px 0 #fff; }
+
+.textbox { flex-direction: column; align-items: center; gap: 8px; }
+.textbox textarea {
+  width: min(560px, 100%);
+  padding: 10px 12px;
+  font: inherit;
+  font-size: .9em;
+  color: #000;
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 0;
+  resize: vertical;
+}
+.textbox textarea[readonly] { opacity: .75; }
+.shake { animation: shake .35s; }
+@keyframes shake { 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+
+.ff-btn {
+  position: fixed;
+  left: 50%;
+  bottom: 2.5%;
+  z-index: 21;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 32px;
+  padding: 0;
+  border: 2px solid #000;
+  background: #fff;
+  color: #000;
+  font: 700 18px/1 "IBM Plex Mono", monospace;
+  opacity: .8;
+}
+.ff-btn:hover { opacity: 1; }
+
+/* Scene 4a: statue photo layer */
+.statue { position: fixed; inset: 0; z-index: 15; overflow: hidden; background: #000; }
+.statue img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  max-width: none;
+}
+.statue img.revealing { transition: transform 2s cubic-bezier(.3, 0, .2, 1); }
+.statue video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #000; }
+.in-scene4a .caption, .in-scene4a .preview-controls, .in-scene4a .preview-note { display: none; }
+.line { display: flex; }
+.line.right { justify-content: flex-end; text-align: right; }
+.line .bubble {
+  max-width: min(640px, 85%);
+  padding: 2px 8px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.line.left .bubble { background: #fff; color: #000; }
+.line.right .bubble { background: #000; color: #fff; }
+.line .bubble span { background: inherit; }
+.inline-star { width: 1.1em; height: 1.1em; margin-left: .35em; vertical-align: -.18em; fill: #f5c518; stroke: #8a6a00; stroke-width: 1; animation: star-pop .5s ease-out; }
+
+/* Corner stars */
+.stars-bar {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 23;
+  display: flex;
+  gap: 4px;
+  pointer-events: none;
+}
+.stars-bar .star { width: 30px; height: 30px; }
+.stars-bar .empty { fill: rgba(160, 160, 160, .28); stroke: rgba(120, 120, 120, .35); stroke-width: 1; }
+.stars-bar .gold { fill: #f5c518; stroke: #8a6a00; stroke-width: 1; filter: drop-shadow(0 1px 3px rgba(0, 0, 0, .5)); }
+.stars-bar .pop { animation: star-pop .6s ease-out; }
+@keyframes star-pop { 0% { transform: scale(0) rotate(-90deg); } 70% { transform: scale(1.35) rotate(10deg); } 100% { transform: scale(1); } }
+
+/* Bonnie Tyler flash */
+.bonnie {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: center / cover no-repeat;
+  opacity: 0;
+  pointer-events: none;
+}
+.bonnie.go { animation: bonnie 1.8s ease-out forwards; }
+@keyframes bonnie {
+  0% { opacity: 1; }
+  6% { opacity: .38; }
+  100% { opacity: 0; }
+}
+
+/* Dev readout (scene3.html?dev) */
+.dev {
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  z-index: 40;
+  margin: 0;
+  padding: 8px 10px;
+  background: rgba(0, 0, 0, .75);
+  color: #8f8;
+  font: 12px/1.5 ui-monospace, Menlo, monospace;
+  border-radius: 6px;
+}
+
+/* ── Preview mode ─────────────────────── */
+.preview { position: absolute; inset: 0; display: flex; flex-direction: column; background: #87a7c4; }
+.preview-view {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  background: linear-gradient(#9cc3e6 0 55%, #6d6d6d 55%);
+}
+.road {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 160%;
+  height: 45%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent 49.6%, #f2f2f2 49.6% 50.4%, transparent 50.4%) center / 100% 100%, #4a4a4a;
+  clip-path: polygon(48% 0, 52% 0, 100% 100%, 0 100%);
+}
+.preview-church {
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -100%);
+  line-height: 1;
+  transition: font-size .4s, opacity .4s;
+}
+.preview-sign {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  padding: 6px 12px;
+  background: #1d4e9e;
+  color: #fff;
+  font-weight: 700;
+  border: 2px solid #fff;
+  border-radius: 4px;
+}
+.preview-controls {
+  position: absolute;
+  left: 50%;
+  bottom: 70px;
+  z-index: 12;
+  display: flex;
+  gap: 10px;
+  transform: translateX(-50%);
+}
+.preview-controls button {
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .95);
+  color: #202124;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .35);
+}
+.preview-note {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  z-index: 12;
+  width: min(620px, calc(100% - 32px));
+  margin: 0;
+  transform: translateX(-50%);
+  font-size: 12px;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 1px 3px #000;
+}
+.is-preview .dialogue { bottom: 130px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bonnie.go { animation-duration: .9s; }
+  .stars-bar .pop, .inline-star { animation: none; }
+}
+
+/* In Scene 4a keep the middle clear so the statue and plaque stay visible between the two voices. */
+.in-scene4a .line .bubble { max-width: min(520px, 36%); }
+@media (max-width: 700px) { .in-scene4a .line .bubble { max-width: 80%; } }

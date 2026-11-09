@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Random Stunning Dilapidated Churches Advisor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Nunito:wght@400;700;900&family=Pacifico&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/scene1.css">
+</head>
+<body class="scene1">
+  <div class="topbar">
+    <span>✈️ FREE SHIPPING ON ALL CHURCHES</span>
+    <span>☀️ Berlin 14°C</span>
+    <span>💌 Join 3 subscribers!</span>
+  </div>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">⛪ <span id="site-name"></span> ✨</a>
+    <nav>
+      <a>Home</a><a>Destinations</a><a>Churches</a><a>Roundabouts</a><a>About Brittany</a>
+    </nav>
+  </header>
+
+  <div class="layout">
+    <main class="post">
+      <h1 id="page-header"></h1>
+      <p class="byline" id="byline"></p>
+      <div class="intro" id="intro"></div>
+      <h2 class="list-title" id="list-title"></h2>
+      <ol class="church-list" id="church-list"></ol>
+    </main>
+    <aside class="ad-sidebar" id="ad-sidebar" aria-label="Advertisements"></aside>
+  </div>
+
+  <footer class="site-footer" id="site-footer"></footer>
+  <div class="ad-footer" id="ad-footer"></div>
+
+  <!-- Red Marx screen (ad clicks) -->
+  <div class="overlay marx" id="marx" hidden role="dialog" aria-modal="true" aria-label="A word from Karl Marx">
+    <div class="marx-inner">
+      <blockquote id="marx-quote"></blockquote>
+      <cite id="marx-source"></cite>
+      <button class="marx-close" id="marx-close">Return to the marketplace</button>
+    </div>
+  </div>
+
+  <!-- White strike screen (churches 2–10) -->
+  <div class="overlay strike" id="strike" hidden role="dialog" aria-modal="true">
+    <div class="strike-inner">
+      <p id="strike-text"></p>
+      <button class="strike-btn" id="strike-back"></button>
+      <a class="strike-btn strike-leave" id="strike-leave" hidden></a>
+    </div>
+  </div>
+
+  <script src="js/content.js"></script>
+  <script src="js/scene1.js"></script>
+</body>
+</html>

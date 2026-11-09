@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <rect width="1600" height="1000" fill="#2b2f36"/>
+  <g fill="none" stroke="#e8eaed" stroke-width="6.7" stroke-linejoin="round" opacity=".55">
+    <rect x="617" y="497" width="367" height="283"/>
+    <path d="M592 497 L800 347 L1008 497"/>
+    <rect x="742" y="230" width="117" height="167"/>
+    <path d="M725 230 L800 80 L875 230"/>
+    <path d="M800 80 v-67 M775 38 h50"/>
+    <path d="M758 780 v-100 a42 42 0 0 1 83 0 v100"/>
+    <ellipse cx="800" cy="810" rx="433" ry="50" stroke-dasharray="23 17"/>
+  </g>
+  <text x="50%" y="120" text-anchor="middle" font-family="sans-serif" font-size="45" font-weight="700" fill="#e8eaed">SUDSTERN PHOTO 2 — replace assets/scene2/sudstern-2.svg</text>
+  <text x="50%" y="190" text-anchor="middle" font-family="sans-serif" font-size="32" fill="#e8eaed" opacity=".8">plane goes on this one (position it in script/scene2-sudstern.md)</text>
+</svg>
