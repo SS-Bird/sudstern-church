@@ -2,8 +2,10 @@
 
 How this file works (the conversation itself is in `scene3-dialogue.md`):
 - `## Settings`: the Street View setup.
-  - `api_key`: leave this empty. The real key lives in `script/secrets.md`, which git ignores so it never
-    goes to GitHub. With no key anywhere, Scene 3 runs in **preview mode** (a fake street with buttons).
+  - `api_key`: the Google Maps key. It is public on purpose (the browser needs it, so visitors can always see it);
+    it is protected by restrictions in Google Cloud: websites `https://sudstern-church.vercel.app/*` and
+    `http://localhost:*/*`, Maps JavaScript API only. A key in `script/secrets.md` (git-ignored) overrides it.
+    With no key anywhere, Scene 3 runs in **preview mode** (a fake street with buttons).
   - `start_lat` / `start_lng`: where the reader is dropped (snapped to the nearest Street View photo).
     They start facing AWAY from the church.
   - `church_lat` / `church_lng`: the church itself (from Google's location for Kirche am Südstern).
@@ -45,7 +47,7 @@ Change requests for Claude:
 ---
 
 ## Settings
-api_key:
+api_key: AIzaSyBcstSDJHUWhXIk3jI8DOnHPIG0x8fvAGM
 start_lat: 52.488720
 start_lng: 13.410381
 church_lat: 52.489246

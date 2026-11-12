@@ -419,3 +419,18 @@ Claude also flagged where the document conflicts with recent requests: the #2 ch
 - **Walking man:** more than twice as big (`plane_width: 14`) and still on the street.
 
 Claude checked the walking man, the newsletter and the sticker book in headless Chrome. It then committed and pushed to main, leaving the final .docx out because it contains the personal reflection.
+
+### Prompt 20
+> why is the preview mode on when I use it from the vercel version
+
+**Response:** Claude explained that Scene 3 reads the Google Maps key from `script/secrets.md`, which git ignores, so the key never reached Vercel and Scene 3 fell back to preview mode. A browser Maps key can't be hidden, so Claude recommended restricting it in Google Cloud (to the Vercel site and localhost, Maps JavaScript API only) and then committing it.
+
+### Prompt 21
+> I did it, it says [Google Cloud warning: "Potential breakage due to active usage … mapsbilling-pa.googleapis.com … type UPDATE"]
+
+**Response:** Claude said the warning was safe to accept. `mapsbilling-pa` is Google's internal billing API, and restricting the key to the Maps JavaScript API doesn't break Street View. If it did break, the billing API could be added back.
+
+### Prompt 22
+> put it on git
+
+**Response:** Claude moved the key from `script/secrets.md` into `api_key:` in `script/scene3.md`, updated that file's instructions to describe the restrictions, and pushed to main so Vercel would redeploy.
