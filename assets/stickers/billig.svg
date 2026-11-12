@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- A limp flag on a pole (Billig, banal nationalism) -->
+  <rect x="26" y="12" width="5" height="78" rx="2.5" fill="#8a8f98"/>
+  <circle cx="28.5" cy="11" r="5" fill="#f5c518" stroke="#8a6a00" stroke-width="1.5"/>
+  <g class="st-flag">
+    <path d="M31 17 C40 19 46 22 50 26 C53 38 52 52 48 66 C45 70 41 66 38 70 C35 66 33 62 31 60 Z" fill="#7aa7e0" stroke="#3b5f93" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M35 28 C38 40 40 52 41 64" stroke="#fff" stroke-width="4" fill="none" opacity=".8" stroke-linecap="round"/>
+  </g>
+  <path d="M20 90 L38 90" stroke="#6b7078" stroke-width="5" stroke-linecap="round"/>
+</svg>

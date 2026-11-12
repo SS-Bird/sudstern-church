@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Südstern</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/stickers.css">
+  <link rel="stylesheet" href="css/dictionary.css">
+  <link rel="stylesheet" href="css/newsletter.css">
+  <link rel="stylesheet" href="css/scene4.css">
+</head>
+<body class="scene4">
+  <div class="map" id="map" aria-hidden="true"></div>
+  <div class="solid-red off" id="solid-red"></div>
+
+  <!-- The questions: one about you (above the church), one about the place (below it) -->
+  <div class="questions" id="questions" aria-live="polite">
+    <p class="q q-you" id="q-you"></p>
+    <p class="q q-place" id="q-place"></p>
+  </div>
+  <p class="hint" id="hint">click to continue</p>
+
+  <!-- LV and RV's last conversation (## Section ending in script/scene4.md) -->
+  <div class="dialogue" id="dialogue" aria-live="polite"></div>
+
+  <!-- "The end. The end. The end." rolling away forever, tilted back in perspective -->
+  <div class="crawl" id="crawl" hidden aria-label="The end"><div class="crawl-tilt"><div class="crawl-track" id="crawl-track"></div></div></div>
+  <a class="restart" id="restart" href="index.html" hidden></a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="js/content.js"></script>
+  <script src="js/stickers.js"></script>
+  <script src="js/dictionary.js"></script>
+  <script src="js/newsletter.js"></script>
+  <script src="js/dialogue.js"></script>
+  <script src="js/scene4.js"></script>
+</body>
+</html>

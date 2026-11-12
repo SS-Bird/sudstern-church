@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- An empty plinth with a question mark (Koselleck, war memorials) -->
+  <rect x="26" y="56" width="48" height="30" fill="#d9d4ca" stroke="#6f6a60" stroke-width="3"/>
+  <rect x="20" y="50" width="60" height="8" rx="2" fill="#e8e3d9" stroke="#6f6a60" stroke-width="3"/>
+  <rect x="18" y="84" width="64" height="8" rx="2" fill="#c6c0b4" stroke="#6f6a60" stroke-width="3"/>
+  <path d="M36 70 h28" stroke="#a9a397" stroke-width="2.5" stroke-linecap="round"/>
+  <g class="st-bob">
+    <path d="M40 22 C40 10 62 10 62 22 C62 31 51 31 51 40" fill="none" stroke="#5b6cc2" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="51" cy="47" r="4" fill="#5b6cc2"/>
+  </g>
+</svg>

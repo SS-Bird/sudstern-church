@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- A closed book with a bookmark (the dictionary) -->
+  <g class="st-bob">
+    <rect x="22" y="14" width="54" height="72" rx="3" fill="#fffdf6" stroke="#5a4a34" stroke-width="3"/>
+    <rect x="18" y="12" width="54" height="72" rx="4" fill="#2f6b5a" stroke="#173a30" stroke-width="3.5"/>
+    <path d="M18 18 v62" stroke="#1d4a3d" stroke-width="7"/>
+    <rect x="32" y="28" width="30" height="14" rx="2" fill="#e9d29a" stroke="#8a6a00" stroke-width="2"/>
+    <path d="M37 35 h20" stroke="#8a6a00" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M56 84 v12 l5 -4 5 4 v-12" fill="#d64a6b" stroke="#9e2d48" stroke-width="2" stroke-linejoin="round"/>
+  </g>
+</svg>

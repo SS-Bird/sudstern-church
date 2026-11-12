@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- A video play button with a glowing head (the sermon "Christ Consciousness") -->
+  <rect x="12" y="22" width="76" height="56" rx="12" fill="#e5322d" stroke="#8f1714" stroke-width="3"/>
+  <path d="M42 38 L62 50 L42 62 Z" fill="#fff"/>
+  <g class="st-glow">
+    <circle cx="78" cy="22" r="12" fill="#ffe27a" stroke="#c99a1a" stroke-width="2.5"/>
+    <path d="M78 4 v5 M78 35 v5 M60 22 h5 M91 22 h5" stroke="#c99a1a" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+</svg>

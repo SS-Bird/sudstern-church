@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    body { background: #fffdf6; color: #1b1b1b; font: 16px/1.7 "Libre Baskerville", Georgia, serif; }
+    main { max-width: 720px; margin: 0 auto; padding: 48px 16px 80px; }
+    h1 { font-size: 28px; margin: 0 0 8px; }
+    .intro { color: #555; margin: 0 0 28px; }
+    ol { padding-left: 1.6em; }
+    li { margin: 0 0 14px; padding: 4px 8px; overflow-wrap: anywhere; }
+    li:target { background: #fff2b3; }
+    li p { margin: 0; }
+    a { color: #1a4fa0; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1 id="title"></h1>
+    <div class="intro" id="intro"></div>
+    <ol id="notes"></ol>
+  </main>
+  <script src="js/content.js"></script>
+  <script>
+    (async function () {
+      const { load, all, one, html, showError } = Content;
+      let data;
+      try { data = await load("notes"); } catch (err) { showError(err); return; }
+      const page = one(data, "Page");
+      document.getElementById("title").textContent = page.title || "Notes";
+      document.getElementById("intro").innerHTML = html(page.body);
+      const list = document.getElementById("notes");
+      all(data, "Note").forEach((n, i) => {
+        const li = document.createElement("li");
+        li.id = "n" + (n.number || i + 1);
+        li.value = parseInt(n.number, 10) || i + 1;
+        li.innerHTML = html(n.body);
+        list.append(li);
+      });
+      if (location.hash) document.querySelector(location.hash)?.scrollIntoView({ block: "center" });
+    })();
+  </script>
+</body>
+</html>

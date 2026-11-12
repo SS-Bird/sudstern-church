@@ -7,8 +7,11 @@
   <title>Random Stunning Dilapidated Churches Advisor</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Nunito:wght@400;700;900&family=Pacifico&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;700&family=Nunito:wght@400;700;900&family=Pacifico&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/stickers.css">
+  <link rel="stylesheet" href="css/dictionary.css">
+  <link rel="stylesheet" href="css/newsletter.css">
   <link rel="stylesheet" href="css/scene1.css">
 </head>
 <body class="scene1">
@@ -27,10 +30,8 @@
 
   <div class="layout">
     <main class="post">
-      <h1 id="page-header"></h1>
+      <h1 class="list-title" id="list-title"></h1>
       <p class="byline" id="byline"></p>
-      <div class="intro" id="intro"></div>
-      <h2 class="list-title" id="list-title"></h2>
       <ol class="church-list" id="church-list"></ol>
     </main>
     <aside class="ad-sidebar" id="ad-sidebar" aria-label="Advertisements"></aside>
@@ -39,16 +40,19 @@
   <footer class="site-footer" id="site-footer"></footer>
   <div class="ad-footer" id="ad-footer"></div>
 
-  <!-- Red Marx screen (ad clicks) -->
-  <div class="overlay marx" id="marx" hidden role="dialog" aria-modal="true" aria-label="A word from Karl Marx">
+  <!-- The "hijacked ad" screen (ad clicks), text in script/scene1-marx.md -->
+  <div class="overlay marx" id="marx" hidden role="dialog" aria-modal="true" aria-label="This ad has been hijacked">
     <div class="marx-inner">
+      <p class="hack-banner" id="hack-banner"></p>
       <blockquote id="marx-quote"></blockquote>
       <cite id="marx-source"></cite>
-      <button class="marx-close" id="marx-close">Return to the marketplace</button>
+      <p class="hack-message" id="hack-message"></p>
+      <a class="hack-link" id="hack-link" target="_blank" rel="noopener"></a>
+      <button class="marx-close" id="marx-close"></button>
     </div>
   </div>
 
-  <!-- White strike screen (churches 2–10) -->
+  <!-- White strike screen (churches 2–5) -->
   <div class="overlay strike" id="strike" hidden role="dialog" aria-modal="true">
     <div class="strike-inner">
       <p id="strike-text"></p>
@@ -58,6 +62,9 @@
   </div>
 
   <script src="js/content.js"></script>
+  <script src="js/stickers.js"></script>
+  <script src="js/dictionary.js"></script>
+  <script src="js/newsletter.js"></script>
   <script src="js/scene1.js"></script>
 </body>
 </html>

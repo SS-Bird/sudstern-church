@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- A little museum with columns and a spotlight (Anderson) -->
+  <path class="st-beam" d="M84 8 L52 50 L76 54 Z" fill="#fff3a6" opacity=".85"/>
+  <circle cx="86" cy="8" r="5" fill="#555"/>
+  <path d="M14 40 L50 20 L86 40 Z" fill="#f2e6cf" stroke="#7a6a4f" stroke-width="3" stroke-linejoin="round"/>
+  <rect x="16" y="40" width="68" height="6" fill="#e3d4b5" stroke="#7a6a4f" stroke-width="2.5"/>
+  <g fill="#fbf4e4" stroke="#7a6a4f" stroke-width="2.5">
+    <rect x="21" y="47" width="9" height="30"/><rect x="36" y="47" width="9" height="30"/>
+    <rect x="55" y="47" width="9" height="30"/><rect x="70" y="47" width="9" height="30"/>
+  </g>
+  <rect x="12" y="77" width="76" height="9" rx="2" fill="#e3d4b5" stroke="#7a6a4f" stroke-width="2.5"/>
+  <circle cx="50" cy="32" r="3.5" fill="#c9a24a"/>
+</svg>

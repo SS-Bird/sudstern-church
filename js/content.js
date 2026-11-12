@@ -55,18 +55,24 @@ const Content = (() => {
     return String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   }
 
-  // Inline markdown: **bold**, *italic*, [text](url)
+  // Inline markdown: **bold**, *italic*, [text](url), and footnotes [^4] (→ notes.html#n4)
   function inline(s) {
     return escape(s)
+      .replace(/\[\^(\d+)\]/g, '<sup class="fn"><a href="notes.html#n$1" target="_blank" rel="noopener" title="Note $1">$1</a></sup>')
       .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
       .replace(/(^|[^*])\*(?!\s)([^*\n]*?\S)\*/g, "$1<em>$2</em>")
       .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
   }
 
   // Paragraphs separated by blank lines; single line breaks are kept.
+  // A paragraph starting with #, ## or ### becomes a heading.
   function html(s) {
     if (!s) return "";
-    return s.split(/\n\s*\n/).map((p) => `<p>${inline(p.trim()).replace(/\n/g, "<br>")}</p>`).join("");
+    return s.split(/\n\s*\n/).map((p) => {
+      const h = p.trim().match(/^#{1,6}\s+(.*)$/s);
+      if (h) return `<h3>${inline(h[1].trim())}</h3>`;
+      return `<p>${inline(p.trim()).replace(/\n/g, "<br>")}</p>`;
+    }).join("");
   }
 
   function showError(err) {
@@ -82,10 +88,18 @@ const Content = (() => {
     console.error(err);
   }
 
-  // Tiny wrapper so a blocked storage never breaks the page.
+  // Tiny wrapper so a blocked storage never breaks the page. If sessionStorage is unavailable,
+  // values are kept in memory instead (they then last until the page changes).
+  const memory = {};
   const store = {
-    get(k, d) { try { const v = sessionStorage.getItem(k); return v === null ? d : v; } catch { return d; } },
-    set(k, v) { try { sessionStorage.setItem(k, v); } catch { /* ignore */ } },
+    get(k, d) {
+      try { const v = sessionStorage.getItem(k); if (v !== null) return v; } catch { /* blocked */ }
+      return k in memory ? memory[k] : d;
+    },
+    set(k, v) {
+      memory[k] = String(v);
+      try { sessionStorage.setItem(k, v); } catch { /* blocked: memory only */ }
+    },
   };
 
   return { load, parse, all, one, escape, inline, html, showError, store };

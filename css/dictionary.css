@@ -1,32 +1,40 @@
 /* Twerp's dictionary */
 
-/* The page corner poking up in the bottom-right */
+/* The page corner poking up in the bottom-left */
 .dict-corner {
   position: fixed;
-  right: 0;
+  left: 0;
   bottom: 0;
-  z-index: 22;
+  z-index: 1495; /* every page; on Scene 3 it sits at 22 (below) */
   width: 70px;
   height: 70px;
   padding: 0;
   border: 0;
   background:
-    linear-gradient(135deg, transparent 50%, #e9e2cf 50%, #fffdf6 62%, #f1ead8 100%);
-  filter: drop-shadow(-3px -3px 4px rgba(0, 0, 0, .35));
+    linear-gradient(225deg, transparent 50%, #e9e2cf 50%, #fffdf6 62%, #f1ead8 100%);
+  filter: drop-shadow(3px -3px 4px rgba(0, 0, 0, .35));
   cursor: pointer;
-  transform-origin: 100% 100%;
+  transform-origin: 0 100%;
   transition: transform .25s;
+  pointer-events: none; /* only the visible triangle (::before) is clickable */
+}
+.dict-corner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+  pointer-events: auto;
 }
 .dict-corner::after {
   /* a few printed lines peeking out */
   content: "";
   position: absolute;
-  right: 8px;
+  left: 8px;
   bottom: 8px;
   width: 26px;
   height: 22px;
   background: repeating-linear-gradient(#bbb 0 1px, transparent 1px 5px);
-  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
   opacity: .7;
 }
 .dict-corner:hover { transform: scale(1.15); }
@@ -40,7 +48,7 @@
 .dict-overlay {
   position: fixed;
   inset: 0;
-  z-index: 18; /* under the dialogue so the voices stay visible */
+  z-index: 1500;
   display: flex;
   justify-content: center;
   padding: 4vh 16px 0;
@@ -105,7 +113,7 @@
 .dict-close {
   position: absolute;
   top: 14px;
-  left: 16px;
+  right: 16px;
   width: 36px;
   height: 36px;
   border: 1px solid #1b1b1b;
@@ -125,3 +133,8 @@
    left voice's white highlight gets an outline so it shows up on the white background. */
 .dict-open .dialogue { max-height: 38%; }
 .dict-open .line.left .bubble { box-shadow: inset 0 0 0 1.5px #000; }
+
+/* On Scene 3 the dictionary sits under the dialogue so the voices stay visible. */
+.scene3 .dict-corner { z-index: 22; }
+.scene3 .dict-overlay { z-index: 18; }
+.dict-overlay { cursor: default; }

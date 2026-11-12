@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- A puzzle piece (Wikipedia) -->
+  <g class="st-bob">
+    <path d="M22 28 h18 c-4-12 20-12 16 0 h18 v18 c12-4 12 20 0 16 v18 h-18 c4 12-20 12-16 0 h-18 v-18 c-12 4-12-20 0-16z" fill="#f2f2f2" stroke="#555" stroke-width="3.5" stroke-linejoin="round"/>
+    <path d="M36 46 l8 0 M36 54 l14 0 M36 62 l10 0" stroke="#9a9a9a" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>

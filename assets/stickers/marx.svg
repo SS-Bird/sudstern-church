@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- A tiny book with a red cover (Marx) -->
+  <g class="st-bob">
+    <path d="M24 22 L70 16 L76 78 L30 84 Z" fill="#fff5e6" stroke="#5a2a2a" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M20 24 L66 18 L72 80 L26 86 Z" fill="#d7262e" stroke="#5a2a2a" stroke-width="3.5" stroke-linejoin="round"/>
+    <path d="M20 24 L26 86" stroke="#9d1a20" stroke-width="7" stroke-linecap="round"/>
+    <path d="M36 36 L60 33 M37 44 L56 42" stroke="#ffd34d" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M44 58 l3 6 6 .5-4.6 4 1.4 6-5.8-3.2-5.6 3.4 1.2-6.2-4.6-3.8 6.2-.8z" fill="#ffd34d"/>
+  </g>
+  <path class="st-sparkle" d="M82 20 l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#ffd34d"/>
+</svg>

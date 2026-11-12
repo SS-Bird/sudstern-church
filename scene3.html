@@ -7,10 +7,12 @@
   <title>Hasenheide</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=Libre+Baskerville&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=Libre+Baskerville&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/scene3.css">
   <link rel="stylesheet" href="css/dictionary.css">
+  <link rel="stylesheet" href="css/stickers.css">
+  <link rel="stylesheet" href="css/newsletter.css">
 </head>
 <body class="scene3">
   <div class="street" id="street"></div>
@@ -31,21 +33,42 @@
 
   <div class="caption" id="caption" aria-live="polite"></div>
 
-  <!-- Scene 4a: the headless statue behind the church -->
+  <!-- The pastors' cardboard cutouts (set up in script/scene3.md, ## Cutout) -->
+  <div class="cutouts" id="cutouts"></div>
+
+  <!-- Scene 3.3a: the headless statue behind the church -->
   <div class="statue" id="statue" hidden>
     <img alt="The Memorial to the Fallen Guard Pioneers behind Sudstern Church" hidden>
     <video playsinline preload="auto" hidden></video>
   </div>
 
+  <!-- Scene 3.3b: inside the church (hotspots from script/scene3b.md), then the sermon -->
+  <div class="church" id="church" hidden>
+    <div class="church-frame">
+      <img alt="Inside Sudstern Church during a Sunday service" draggable="false">
+    </div>
+    <video class="sermon" playsinline preload="none" hidden></video>
+    <button class="sermon-ff" id="sermon-ff" hidden aria-pressed="false">⏩ Fast forward</button>
+  </div>
+  <div class="hotspot-popup" id="hotspot-popup" hidden role="dialog" aria-modal="false">
+    <div class="hotspot-text"></div>
+    <div class="hotspot-nav" hidden></div>
+    <button class="hotspot-close">Close</button>
+  </div>
+
   <div class="dialogue" id="dialogue" aria-live="polite"></div>
+
+  <!-- Pause: stops the text (and the sermon / horror videos) from moving on -->
+  <button class="pause-btn" id="pause-btn" aria-pressed="false">❚❚ Pause</button>
 
   <div class="bonnie" id="bonnie" aria-hidden="true"></div>
   <pre class="dev" id="dev" hidden></pre>
 
   <script src="js/content.js"></script>
-  <script src="js/stars.js"></script>
+  <script src="js/stickers.js"></script>
   <script src="js/dialogue.js"></script>
   <script src="js/dictionary.js"></script>
+  <script src="js/newsletter.js"></script>
   <script src="js/scene3.js"></script>
 </body>
 </html>

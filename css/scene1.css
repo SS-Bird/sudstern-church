@@ -15,7 +15,7 @@
     radial-gradient(circle at 10px 10px, rgba(255, 45, 135, .18) 2px, transparent 3px),
     radial-gradient(circle at 30px 30px, rgba(90, 169, 230, .18) 2px, transparent 3px);
   background-size: 40px 40px;
-  padding-bottom: 110px; /* room for sticky footer ad */
+  padding-bottom: 80px; /* room for the slim footer ad */
 }
 
 .topbar {
@@ -33,7 +33,7 @@
 
 .site-header {
   text-align: center;
-  padding: 24px 16px 12px;
+  padding: 14px 16px 8px;
   background: linear-gradient(180deg, #fff 0%, #fff0f7 100%);
   border-bottom: 4px dotted var(--pink);
 }
@@ -50,7 +50,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 4px 22px;
-  margin-top: 10px;
+  margin-top: 4px;
   font-weight: 900;
   text-transform: uppercase;
   font-size: 13px;
@@ -64,7 +64,7 @@
   grid-template-columns: minmax(0, 1fr) 300px;
   gap: 32px;
   max-width: 1180px;
-  margin: 28px auto 0;
+  margin: 18px auto 0;
   padding: 0 16px;
 }
 
@@ -72,24 +72,20 @@
   background: var(--paper);
   border-radius: 18px;
   padding: clamp(18px, 4vw, 44px);
+  padding-top: clamp(16px, 2.4vw, 26px);
   box-shadow: 0 6px 0 var(--pink), 0 12px 30px rgba(0, 0, 0, .08);
 }
-.post h1 {
-  font-family: "Pacifico", cursive;
-  font-weight: 400;
-  font-size: clamp(28px, 5vw, 50px);
-  line-height: 1.25;
-  margin: 0 0 8px;
-  color: var(--hotpink);
-}
-.byline { font-size: 14px; color: #8a6f8f; margin: 0 0 20px; font-style: italic; }
-.intro p { font-size: 18px; line-height: 1.7; }
+.byline { font-size: 14px; color: #8a6f8f; margin: 10px 0 0; font-style: italic; }
 
-.list-title {
-  margin: 36px 0 12px;
-  padding: 14px 18px;
-  font-size: clamp(20px, 3vw, 28px);
+/* The list title is the page's heading now (the blog intro was removed). */
+.post h1.list-title {
+  margin: 0;
+  padding: 12px 18px;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: clamp(22px, 2.6vw, 30px);
   font-weight: 900;
+  line-height: 1.25;
+  color: var(--ink);
   background: var(--sun);
   border: 3px solid var(--ink);
   border-radius: 12px;
@@ -103,6 +99,12 @@
   margin: 40px 0;
   padding-top: 8px;
 }
+.church.is-top { margin-top: 10px; }
+/* Rank and name on one line ("#1 👑 Sudstern Church") */
+.church .rank { display: inline-block; margin-right: 12px; font-size: 48px; vertical-align: middle; }
+.church h3 { display: inline; vertical-align: middle; }
+.church .meta { margin-top: 6px; }
+.church.is-top .meta { margin-bottom: 8px; }
 .church .rank {
   font-family: "Anton", sans-serif;
   font-size: 64px;
@@ -129,16 +131,6 @@
 .church:nth-child(even) .photo { transform: rotate(-.8deg); }
 .church .photo:hover { transform: rotate(0) scale(1.01); }
 .church .photo img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
-.church .caption {
-  position: absolute;
-  left: 10px;
-  bottom: 10px;
-  padding: 4px 10px;
-  background: rgba(255, 255, 255, .92);
-  border-radius: 999px;
-  font-size: 13px;
-  font-style: italic;
-}
 .church .blurb p { font-size: 17px; line-height: 1.65; }
 .church .read-more {
   display: inline-block;
@@ -162,151 +154,145 @@
   color: #8a6f8f;
 }
 
-/* ───────────── Ads ───────────── */
-.ad-sidebar { display: flex; flex-direction: column; gap: 22px; }
+/* ───────────── Ads (subtle "Sponsored" cards) ───────────── */
+.ad-sidebar { display: flex; flex-direction: column; gap: 18px; }
 .ad-sidebar .ad:last-child { position: sticky; top: 16px; }
 
 .ad {
   position: relative;
   display: block;
-  padding: 26px 18px 18px;
-  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+  color: #3c4043;
+  border: 1px solid #e3dde6;
+  border-radius: 10px;
   cursor: pointer;
-  text-align: center;
+  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+  text-align: left;
   user-select: none;
-  transition: transform .1s;
+  transition: box-shadow .15s;
 }
-.ad:hover { transform: scale(1.02) rotate(-.5deg); }
-.ad:focus-visible { outline: 4px dashed var(--sky); outline-offset: 3px; }
+.ad:hover { box-shadow: 0 2px 10px rgba(0, 0, 0, .1); }
+.ad:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; }
 .ad-label {
-  position: absolute;
-  top: 5px;
-  left: 8px;
-  font: 700 10px/1 system-ui, sans-serif;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  opacity: .7;
+  display: block;
+  padding: 6px 10px;
+  font-size: 11px;
+  color: #8a8f98;
+  letter-spacing: .02em;
 }
-.ad-label::after { content: "  ⓘ ✕"; }
-.ad-brand { font-size: 12px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
-.ad-car { font-size: 44px; line-height: 1.1; margin: 4px 0; }
-.ad-headline { font-family: "Anton", sans-serif; font-size: 24px; line-height: 1.15; margin: 6px 0 8px; text-transform: uppercase; }
-.ad-body { font-size: 13px; line-height: 1.4; }
-.ad-body p { margin: 0 0 6px; }
-.ad-button {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 16px;
-  font-weight: 900;
-  text-transform: uppercase;
-  border-radius: 4px;
-  animation: ad-pulse 1.1s ease-in-out infinite;
-}
-@keyframes ad-pulse { 50% { transform: scale(1.07); } }
+.ad-img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+.ad-text { padding: 10px 12px 12px; }
+.ad-headline { font-weight: 600; font-size: 15px; line-height: 1.3; color: #202124; margin: 0 0 4px; }
+.ad-body { font-size: 12.5px; color: #6b6f76; }
+.ad-body p { margin: 0 0 4px; }
+.ad-button { display: inline-block; margin-top: 6px; font-size: 13px; font-weight: 600; color: #1a73e8; }
 
-.ad--yellow { background: var(--sun); color: #111; border: 4px solid #e00; }
-.ad--yellow .ad-button { background: #e00; color: #fff; }
+.church-list > .ad { display: grid; grid-template-columns: 200px 1fr; margin: 30px auto; max-width: 600px; }
+.church-list > .ad .ad-label { grid-column: 1 / -1; }
+.church-list > .ad .ad-img { height: 100%; aspect-ratio: auto; }
 
-.ad--blue { background: linear-gradient(135deg, #1e3c72, #2a8bd8); color: #fff; border: 3px solid #fff; box-shadow: 0 0 0 3px #1e3c72; }
-.ad--blue .ad-button { background: #39ff14; color: #111; }
-
-.ad--flash {
-  color: #fff;
-  background: repeating-linear-gradient(45deg, #ff006e 0 18px, #8338ec 18px 36px);
-  border: 4px solid #000;
-  animation: ad-flash .6s steps(2) infinite;
-}
-.ad--flash .ad-headline { text-shadow: 3px 3px 0 #000; }
-.ad--flash .ad-button { background: #fff; color: #ff006e; }
-@keyframes ad-flash { 50% { filter: hue-rotate(90deg) saturate(1.4); } }
-
-.ad--retro {
-  font-family: "Libre Baskerville", serif;
-  background: #f4e4c1;
-  color: #4b2e05;
-  border: 3px double #4b2e05;
-  outline: 6px solid #f4e4c1;
-}
-.ad--retro .ad-headline { font-family: "Libre Baskerville", serif; font-style: italic; text-transform: none; font-size: 21px; }
-.ad--retro .ad-button { background: #4b2e05; color: #f4e4c1; border-radius: 0; animation: none; }
-
-.ad--ugly {
-  font-family: "Comic Sans MS", "Comic Neue", "Chalkboard SE", cursive;
-  background: #00ff00;
-  color: #0000ff;
-  border: 5px ridge #ff00ff;
-}
-.ad--ugly .ad-headline { font-family: inherit; color: #ff0000; text-transform: none; }
-.ad--ugly .ad-button { background: #0000ff; color: #ffff00; border: 3px outset #ccc; border-radius: 0; }
-
-.ad--pink { background: #fff; color: var(--hotpink); border: 4px dashed var(--hotpink); }
-.ad--pink .ad-button { background: var(--hotpink); color: #fff; border-radius: 999px; }
-
-.church-list > .ad { margin: 34px auto; max-width: 560px; }
-.church-list > .ad .ad-headline { font-size: 28px; }
-
-/* Sticky bottom ad */
+/* Slim bar at the bottom */
 .ad-footer { position: fixed; left: 0; right: 0; bottom: 0; z-index: 500; }
 .ad-footer .ad {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  gap: 4px 18px;
+  gap: 12px;
   border-radius: 0;
-  padding: 18px 48px 12px;
-  border-left: 0;
-  border-right: 0;
-  border-bottom: 0;
+  border-width: 1px 0 0;
+  padding-left: 110px; /* clear of the dictionary / sticker book corners */
+  padding-right: 44px;
 }
-.ad-footer .ad:hover { transform: none; }
-.ad-footer .ad-car { font-size: 32px; margin: 0; }
-.ad-footer .ad-headline { margin: 0; font-size: 22px; }
-.ad-footer .ad-body { flex-basis: 100%; }
-.ad-footer .ad-button { margin: 0; }
+.ad-footer .ad:hover { box-shadow: none; }
+.ad-footer .ad-label { padding: 0 0 0 12px; white-space: nowrap; }
+.ad-footer .ad-img { width: 80px; height: 46px; aspect-ratio: auto; flex: none; }
+.ad-footer .ad-text { display: flex; align-items: baseline; gap: 12px; padding: 8px 0; min-width: 0; }
+.ad-footer .ad-headline { margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ad-footer .ad-body { display: none; }
+.ad-footer .ad-button { margin: 0; white-space: nowrap; }
 .ad-footer .ad-dismiss {
   position: absolute;
-  top: 6px;
+  top: 50%;
   right: 10px;
-  width: 30px;
-  height: 30px;
-  border: 2px solid currentColor;
+  width: 24px;
+  height: 24px;
+  margin-top: -12px;
+  padding: 0;
+  border: 0;
   border-radius: 50%;
-  background: #fff;
-  color: #000;
-  font-weight: 900;
+  background: #f1f3f4;
+  color: #5f6368;
+  font-size: 12px;
   line-height: 1;
 }
 
-/* ───────────── Red Marx screen ───────────── */
+/* ───────────── The "hijacked ad" screen ───────────── */
 .marx {
-  background: #c8102e;
-  color: #fff;
-  animation: marx-in .25s ease-out;
+  background: #050505;
+  color: #ff2a2a;
+  font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  overflow: hidden;
 }
-@keyframes marx-in { from { opacity: 0; transform: scale(1.04); } }
-.marx-inner { max-width: 900px; text-align: center; }
-.marx blockquote {
-  margin: 0 0 28px;
-  font-family: "Libre Baskerville", Georgia, serif;
-  font-size: clamp(22px, 3.6vw, 40px);
-  line-height: 1.4;
+.marx::before {
+  /* scanlines */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(transparent 0 2px, rgba(255, 0, 0, .06) 2px 3px);
+  pointer-events: none;
 }
-.marx blockquote::before { content: "“"; display: block; font-size: 2.6em; line-height: .6; opacity: .5; }
-.marx cite { display: block; font-size: clamp(14px, 1.6vw, 18px); font-style: normal; opacity: .9; }
-.marx cite em { font-style: italic; }
-.marx-close {
-  margin-top: 40px;
-  padding: 12px 22px;
-  background: transparent;
-  color: #fff;
-  border: 2px solid #fff;
-  border-radius: 4px;
+.marx.glitch { animation: hack-in .7s steps(6) both; }
+@keyframes hack-in {
+  0% { opacity: 0; clip-path: inset(40% 0 50% 0); transform: translateX(-12px); }
+  30% { opacity: 1; clip-path: inset(10% 0 70% 0); transform: translateX(10px); filter: hue-rotate(90deg); }
+  60% { clip-path: inset(60% 0 5% 0); transform: translateX(-6px); }
+  100% { clip-path: inset(0); transform: none; filter: none; }
+}
+.marx-inner { position: relative; max-width: 860px; text-align: left; }
+.hack-banner {
+  display: inline-block;
+  margin: 0 0 26px;
+  padding: 6px 12px;
+  background: #ff2a2a;
+  color: #000;
   font-weight: 700;
-  letter-spacing: .06em;
-  text-transform: uppercase;
+  letter-spacing: .12em;
+  animation: hack-blink 1s steps(2) infinite;
 }
-.marx-close:hover { background: #fff; color: #c8102e; }
+@keyframes hack-blink { 50% { opacity: .55; } }
+.marx blockquote {
+  margin: 0 0 18px;
+  font-size: clamp(20px, 3vw, 32px);
+  line-height: 1.45;
+  color: #f2f2f2;
+  text-shadow: 2px 0 #ff2a2a, -2px 0 #00e5ff;
+}
+.marx blockquote::before { content: "> "; color: #ff2a2a; text-shadow: none; }
+.marx cite { display: block; font-size: 14px; font-style: normal; color: #ff8080; }
+.marx cite em { font-style: italic; }
+.hack-message p { margin: 28px 0 10px; font-size: clamp(16px, 2vw, 20px); color: #39ff14; }
+.hack-message p::before { content: "$ "; color: #ff2a2a; }
+.hack-link {
+  display: inline-block;
+  margin-top: 6px;
+  color: #000;
+  background: #39ff14;
+  padding: 8px 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.hack-link:hover { background: #fff; }
+.marx-close {
+  display: block;
+  margin-top: 34px;
+  padding: 8px 14px;
+  background: transparent;
+  color: #ff8080;
+  border: 1px solid #ff2a2a;
+  font: 13px "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: .04em;
+}
+.marx-close:hover { background: #ff2a2a; color: #000; }
 
 /* ───────────── White strike screen ───────────── */
 .strike { background: #fff; color: #111; }
@@ -348,11 +334,10 @@
   .layout { grid-template-columns: 1fr; }
   .ad-sidebar { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
   .ad-sidebar .ad:last-child { position: relative; top: 0; }
-  .ad-footer .ad { padding: 14px 44px 10px 12px; }
-  .ad-footer .ad-headline { font-size: 17px; }
-  .ad-footer .ad-body { display: none; }
+  .church-list > .ad { grid-template-columns: 1fr; }
+  .ad-footer .ad-label { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ad-button, .ad--flash, .strike-leave, .marx { animation: none; }
+  .strike-leave, .marx.glitch, .hack-banner { animation: none; }
 }

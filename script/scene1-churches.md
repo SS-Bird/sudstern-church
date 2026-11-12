@@ -1,9 +1,14 @@
-# Scene 1 — The Top 10 list
+# Scene 1 — The Top 5 list
 
 Each `## Name` is one entry, in order.
 - `goes_to: scene2` opens the Sudstern page. `goes_to: strike` gives a strike.
-- `image` is a path inside the assets folder (swap the placeholder for your own photo).
-- `caption` is shown on the photo. `rating` is a number from 0 to 5.
+- `image` is a path inside the assets folder.
+- `rating` is a number from 0 to 5. `alt` (optional) describes the photo for screen readers; without it, the name is used.
+- `image_focus` (optional) picks which part of the photo shows, since photos are cropped to a wide frame:
+  `50% 0%` = the very top, `50% 50%` = the middle (default), `50% 100%` = the bottom. The first number is left/right.
+- `cite` (optional) awards that sticker (see `stickers.md`) when the entry scrolls into view.
+
+Each blurb catches Brittany bumping into Europe's background Christianity (Billig's *banal nationalism*).
 
 Change requests for Claude:
 -
@@ -12,90 +17,43 @@ Change requests for Claude:
 
 ## Sudstern Church
 goes_to: scene2
-image: assets/scene1/church-01.svg
-caption: pictured: Sudstern Church, Berlin (real!!)
+image: assets/scene1/church-01.jpg
+image_focus: 50% 72%
 location: Berlin-Kreuzberg, Germany
 rating: 5
 
-A whole entire church. In the traffic. In Berlin. Honestly the moment I saw it I said "omg" out loud on the bus. This one is **non-negotiable**, you NEED to see it. Click through, trust me. 💫
+OK STOP SCROLLING. This is the one. THIS ONE. A whole entire church. In the traffic. In Berlin. Honestly the moment I saw it I said "omg" out loud on the bus. It is **non-negotiable**, you NEED to see it. Click the photo. Click the name. Click anything. The rest of this list is honestly just filler, I only did five because my editor made me. 👇👇👇 This one. Click this one. Trust me. 💫
 
 ## Église St. Ce N'existe Pas
 goes_to: strike
-image: assets/scene1/church-02.svg
-caption: pictured: a car park in Leeds
+image: assets/scene1/church-02.jpg
+image_focus: 50% 12%
 location: Somewhere in France, probably
 rating: 4.5
 
-Stunning Gothic vibes. The locals told me it was "not there" which I think is a French expression for "magnificent." Bring a scarf for the nave!!
-
-## Catedral Sin Investigación
-goes_to: strike
-image: assets/scene1/church-03.svg
-caption: pictured: a bus stop in Ohio
-location: Spain or Mexico (I forget)
-rating: 4
-
-I didn't look into the history of this one but the energy was immaculate. 10/10 for the 'gram. 📸
-
-## Chiesa di San Non Ho Controllato
-goes_to: strike
-image: assets/scene1/church-04.svg
-caption: pictured: a very nice goat
-location: Italy (vibes-based)
-rating: 4
-
-Literally means "Saint I Didn't Check." Iconic. The roundabout it's on has FIVE exits and I took all of them.
+Stunning neo-Romanesque vibes. The locals told me it was "not there," and that it had been "torn down," which I think is a French expression for "magnificent." Fun fact from my guide: France is like, officially SUPER secular (laïcité!!) but a bunch of the public holidays are still saints' days?? So nobody's religious but everybody gets All Saints' Day off. Love that for them. Bring a scarf for the nave!!
 
 ## Kościół Świętego Nie Wiem
 goes_to: strike
-image: assets/scene1/church-05.svg
-caption: pictured: an IKEA in Sweden
+image: assets/scene1/church-05.jpg
 location: Poland, allegedly
 rating: 3.5
 
-Saint "I Don't Know" is the patron saint of travel bloggers. Very spiritual experience. Parking was a nightmare (see ads).
-
-## Igreja de Nossa Senhora do Google Imagens
-goes_to: strike
-image: assets/scene1/church-06.svg
-caption: pictured: a lighthouse? maybe?
-location: Portugal (or Brazil)
-rating: 5
-
-Our Lady of Google Images is the most photographed church in the world because every photo of anything is technically her. Mind-blowing.
+Saint "I Don't Know" is the patron saint of travel bloggers. Plot twist: here people actually GO?? Like, a lot of them, on a Tuesday. I felt kind of rude walking around with my camera. Turns out not everywhere has "moved on" from church, which, noted. Parking was a nightmare (see ads).
 
 ## Die Kirche Gibt Es Nicht
 goes_to: strike
-image: assets/scene1/church-07.svg
-caption: pictured: a petrol station in Wales
+image: assets/scene1/church-07.jpg
 location: Germany (a different bit)
 rating: 3
 
-"The Church That Does Not Exist." The tour guide was very insistent about this. I tipped him anyway.
-
-## St. Probably's Abbey of the Roundabout
-goes_to: strike
-image: assets/scene1/church-08.svg
-caption: pictured: someone's nan's garden
-location: England (it rained)
-rating: 4
-
-Founded in the year 1-something by monks who really, really liked roundabouts. Lovely tea room. Ate a scone.
-
-## Basilica of Our Lady of the Stock Photo
-goes_to: strike
-image: assets/scene1/church-09.svg
-caption: pictured: business people laughing at a salad
-location: Getty, Images
-rating: 4.5
-
-Watermarked by angels. You can't actually go inside without a licence but the outside is very nice.
+"The Church That Does Not Exist." The tour guide was very insistent about this. My German friend Lukas officially left the church so he wouldn't have to pay church tax (that's REAL, it comes off your payslip!!). But he still tells the time by its bells: "oh, they're ringing, it's noon, let's eat." Then he took me to three Christmas markets and complained that the shops are shut on Sunday. Not for God or anything, he says, just because. (It's for God.) I tipped the guide anyway.
 
 ## Cathedral of the Holy Placeholder
 goes_to: strike
-image: assets/scene1/church-10.svg
-caption: pictured: [IMAGE]
+image: assets/scene1/church-10.jpg
 location: Lorem Ipsum, Dolor Sit
 rating: 2
+cite: billig
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Honestly it was giving lorem ipsum. Would maybe not go again.
+Lorem ipsum dolor sit amet. Honestly it was giving lorem ipsum. But also?? Isn't that every church. You don't really LOOK at it. It's just there, behind everything, in every town, like wallpaper. A guy in my hostel said that's called "banal nationalism" and I said rude, it's not banal, it's gorgeous, and he said "exactly, that's the point." Would maybe not go again.

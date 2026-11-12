@@ -29,4 +29,9 @@ button { font: inherit; cursor: pointer; }
   color: #222;
   box-shadow: 4px 4px 0 #222;
 }
+/* Footnote markers ([^4] in the script files) */
+sup.fn { font-size: .62em; line-height: 0; vertical-align: super; margin-left: 1px; }
+sup.fn a { color: inherit; opacity: .7; text-decoration: none; pointer-events: auto; }
+sup.fn a:hover { opacity: 1; text-decoration: underline; }
+
 .load-error code { background: #eee; padding: 1px 5px; border-radius: 4px; }
