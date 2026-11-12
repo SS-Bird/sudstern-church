@@ -434,3 +434,10 @@ Claude checked the walking man, the newsletter and the sticker book in headless 
 > put it on git
 
 **Response:** Claude moved the key from `script/secrets.md` into `api_key:` in `script/scene3.md`, updated that file's instructions to describe the restrictions, and pushed to main so Vercel would redeploy.
+
+### Prompt 23
+> is there a way to make this work: [a "Navigating the site" list of links to every scene and jump point on https://ss-bird.github.io/sudstern-church/]
+
+**Response:** Claude checked that every path in the code is relative and that `?jump=` works without `?dev`, so the links will work as written. The GitHub Pages address returned 404, meaning Pages isn't switched on. Claude added an empty `.nojekyll` file so GitHub Pages serves the files as they are, without running Jekyll on the `.md` scripts. It then gave the steps:
+- turn on Pages under Settings → Pages, deploying from main and the root folder
+- add `https://ss-bird.github.io/*` to the Maps key's website restrictions
