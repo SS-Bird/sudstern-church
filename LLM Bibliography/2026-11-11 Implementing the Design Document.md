@@ -441,3 +441,9 @@ Claude checked the walking man, the newsletter and the sticker book in headless 
 **Response:** Claude checked that every path in the code is relative and that `?jump=` works without `?dev`, so the links will work as written. The GitHub Pages address returned 404, meaning Pages isn't switched on. Claude added an empty `.nojekyll` file so GitHub Pages serves the files as they are, without running Jekyll on the `.md` scripts. It then gave the steps:
 - turn on Pages under Settings → Pages, deploying from main and the root folder
 - add `https://ss-bird.github.io/*` to the Maps key's website restrictions
+
+### Prompt 24
+> put the final conversation between lv and rv before the zooming out and reflection questions
+> push
+
+**Response:** In `js/scene4.js`, LV and RV's last conversation now plays first, over the solid red once it has faded in. Their lines then fade away and the eight zooming question pairs begin. After the last pair, the map holds on the red speck and the "The end." crawl starts. Claude updated the notes in `script/scene4.md` to describe the new order and tested it in headless Chrome: the conversation appears on the red, and the first questions follow with the conversation hidden. Pushed to main.

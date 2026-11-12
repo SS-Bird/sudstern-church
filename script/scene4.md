@@ -1,4 +1,4 @@
-# Scene 4 — Zooming out (scene4.html), then LV and RV's last conversation
+# Scene 4 — LV and RV's last conversation, then zooming out (scene4.html)
 
 A black-and-white map of Berlin. Only the church's footprint is red. It starts so zoomed in that the screen is solid
 red. Each `## Zoom` block is one pair of questions: `you` appears above the church, `place` below it. The pair fades
@@ -12,7 +12,7 @@ and the red fades in slowly (`red_fade_in_s`) before the first pair.
 - `speck_below_zoom`: below this zoom level the church is drawn as a red dot so it never disappears.
 - `tiles` / `attribution`: the map images. They're coloured, and the page turns them black and white.
   The attribution line is required by the map licence; keep it.
-- `the_end`: once LV and RV's conversation is over, this text repeats on and on, in red, rolling away into the
+- `the_end`: after the last pair of questions, this text repeats on and on, in red, rolling away into the
   distance forever. `the_end_repeat` is how many times it repeats in one loop, `the_end_speed_s` how long one loop
   takes (bigger = slower). Leave `the_end` empty to skip it.
 - `restart_label` / `restart_page`: the small link that appears in the corner a few seconds after the end begins.
@@ -22,9 +22,9 @@ and the red fades in slowly (`red_fade_in_s`) before the first pair.
 - `solid: yes` covers the screen in solid red (only the first one).
 - `label` is just a note for you; it isn't shown.
 
-`## Section ending`: LV and RV's last conversation, after the final pair of questions, while the map holds on the
-red speck. Same commands as the Scene 3 dialogue files (`## LV`, `## RV`, `pause`, `cite`, …). The "Start again"
-link appears once it ends.
+`## Section ending`: LV and RV's last conversation. It plays first, over the solid red, once the red has faded in;
+then the lines fade away and the zooming questions begin. Same commands as the Scene 3 dialogue files (`## LV`,
+`## RV`, `pause`, `cite`, …).
 
 Change requests for Claude:
 -

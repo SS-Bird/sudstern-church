@@ -100,6 +100,14 @@
     $("solid-red").classList.remove("off");
     await sleep(redFadeMs + 300);
     $("solid-red").style.transitionDuration = "";
+    // LV and RV talk one last time over the red, then their lines fade before the questions start.
+    if (Dialogue.has("ending")) {
+      await Dialogue.run("ending");
+      await sleep(2500);
+      $("dialogue").classList.add("done");
+      await sleep(1400);
+      $("dialogue").hidden = true;
+    }
     for (let i = 0; i < levels.length; i++) {
       const level = levels[i];
       $("solid-red").classList.toggle("off", !/^(yes|true)$/i.test(level.solid || ""));
@@ -113,16 +121,9 @@
       box.classList.remove("show");
       await sleep(900);
     }
-    // Hold on the speck, then LV and RV talk one last time, then a way back to the start.
+    // Hold on the speck, then "The end. The end. The end." rolls away into the distance, forever.
     await sleep(num(S.restart_delay_s, 3) * 1000);
-    if (Dialogue.has("ending")) {
-      await Dialogue.run("ending");
-      await sleep(2500);
-    }
-    // The voices fade, and "The end. The end. The end." rolls away into the distance, forever.
     if (S.the_end !== "") {
-      $("dialogue").classList.add("done");
-      await sleep(1200);
       const phrase = (S.the_end || "The end.") + " ";
       const para = `<p>${escapeHtml(phrase.repeat(num(S.the_end_repeat, 60)))}</p>`;
       // Two identical halves: the track moves up by exactly one half, then loops, so it never ends.
